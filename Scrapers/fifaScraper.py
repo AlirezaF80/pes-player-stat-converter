@@ -3,8 +3,8 @@ from typing import Dict
 
 from bs4 import Tag
 
+from Scrapers.scraper import Scraper
 from fifaPlayer import FIFAPlayer, FIFAPlayerStats, FIFAPosition
-from scraper import Scraper
 
 
 class FIFAScraper(Scraper):
@@ -166,9 +166,9 @@ class FIFAScraper(Scraper):
             stat_pow = int(scraped_data[stat])
             stats.__dict__[stat.lower().replace(' ', '_').replace('.', '')] = stat_pow
 
-        stats.weak_foot_acc = scraped_data['weak foot']
+        stats.weak_foot = scraped_data['weak foot']
         return stats
 
 
 if __name__ == '__main__':
-    print(FIFAScraper.get_player("asdfc").stats.__dict__)
+    print(FIFAScraper.get_player("messi").stats.__dict__)

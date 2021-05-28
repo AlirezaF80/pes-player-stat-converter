@@ -1,7 +1,7 @@
 import enum
-from typing import Dict
+from typing import Tuple
 
-from player import Stats, Player
+from player import Player
 
 
 class PESPosition(enum.Enum):
@@ -20,40 +20,40 @@ class PESPosition(enum.Enum):
     GK = "Goalkeeper"
 
 
-class PESPlayerStats(Stats):
+class PESPlayerStats:
     def __init__(self, overall: int):
-        super().__init__(overall)
-        position: PESPosition
-        other_positions: Dict[PESPosition, int] = {}
-        offensive_awareness: int
-        ball_control: int
-        dribbling: int
-        tight_possession: int
-        low_pass: int
-        lofted_pass: int
-        finishing: int
-        heading: int
-        place_kicking: int
-        curl: int
-        speed: int
-        acceleration: int
-        kicking_power: int
-        jump: int
-        physical_contact: int
-        balance: int
-        stamina: int
-        defensive_awareness: int
-        ball_winning: int
-        aggression: int
-        gk_awareness: int
-        gk_catching: int
-        gk_clearing: int
-        gk_reflexes: int
-        gk_reach: int
-        weak_foot_usage: int
-        weak_foot_acc: int
-        form: int
-        injury_resistance: int
+        self.overall: int = overall
+        self.position: PESPosition = None
+        self.other_positions: Tuple = tuple()
+        self.offensive_awareness: int = 40
+        self.ball_control: int = 40
+        self.dribbling: int = 40
+        self.tight_possession: int = 40
+        self.low_pass: int = 40
+        self.lofted_pass: int = 40
+        self.finishing: int = 40
+        self.heading: int = 40
+        self.place_kicking: int = 40
+        self.curl: int = 40
+        self.speed: int = 40
+        self.acceleration: int = 40
+        self.kicking_power: int = 40
+        self.jump: int = 40
+        self.physical_contact: int = 40
+        self.balance: int = 40
+        self.stamina: int = 40
+        self.defensive_awareness: int = 40
+        self.ball_winning: int = 40
+        self.aggression: int = 40
+        self.gk_awareness: int = 40
+        self.gk_catching: int = 40
+        self.gk_clearing: int = 40
+        self.gk_reflexes: int = 40
+        self.gk_reach: int = 40
+        self.weak_foot_usage: int = 1
+        self.weak_foot_acc: int = 1
+        self.form: int = 1
+        self.injury_resistance: int = 1
 
 
 class PESPlayer(Player):

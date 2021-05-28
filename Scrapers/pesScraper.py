@@ -2,8 +2,8 @@ from typing import Dict
 
 from bs4 import Tag
 
+from Scrapers.scraper import Scraper
 from pesPlayer import PESPlayer, PESPlayerStats, PESPosition
-from scraper import Scraper
 
 
 class PESScraper(Scraper):
