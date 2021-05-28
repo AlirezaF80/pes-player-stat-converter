@@ -1,9 +1,10 @@
 import enum
+from typing import Dict
 
 from player import Stats, Player
 
 
-class Position(enum.Enum):
+class PESPosition(enum.Enum):
     CF = "Centre Forward"
     RWF = "Right Wing Forward"
     SS = "Second Striker"
@@ -22,7 +23,8 @@ class Position(enum.Enum):
 class PESPlayerStats(Stats):
     def __init__(self, overall: int):
         super().__init__(overall)
-        position: Position
+        position: PESPosition
+        other_positions: Dict[PESPosition, int] = {}
         offensive_awareness: int
         ball_control: int
         dribbling: int
@@ -55,4 +57,7 @@ class PESPlayerStats(Stats):
 
 
 class PESPlayer(Player):
-    pass
+    def __str__(self):
+        string = f"{self.full_name} - {self.stats.overall} {self.stats.position.name} - {self.age}y.o." \
+                 f" - {self.nationality} - {self.team}"
+        return string
